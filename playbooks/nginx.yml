@@ -1,0 +1,25 @@
+---
+- name: Installing nginx
+  hosts: all
+  roles:
+    - role: roles/nginx
+
+
+
+############## with out using roles ############
+# - hosts: nginx
+#   tasks:
+#   ######## Updating apt-get ##########
+#   - name: updating apt-get
+#     shell:
+#       cmd: apt-get update
+#     become: true
+#   ########## Installing Nginx ########
+#   - name: Installing nginx
+#     apt:
+#       name: nginx
+#       state: latest
+#     become: true
+
+
+

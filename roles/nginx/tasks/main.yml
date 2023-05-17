@@ -1,0 +1,19 @@
+---
+# tasks file for nginx
+- name: Updating apt-get
+  shell: 
+    cmd: apt-get update
+  become: true
+
+- name: Installing nginx
+  apt:
+    name: nginx
+    state: present
+  become: true
+
+- name: Copying nginx.html file to /var/www/html/ location
+  copy:
+    src: index.nginx-debian.html
+    dest: /var/www/html/
+  become: true
+  notify: Restart nginx
